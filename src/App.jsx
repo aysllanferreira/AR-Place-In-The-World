@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  VRButton, ARButton, XR, Controllers, Hands,
+  VRButton, XR, Controllers, Hands,
 } from '@react-three/xr';
 import { Canvas } from '@react-three/fiber';
 
