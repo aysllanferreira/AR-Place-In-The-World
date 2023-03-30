@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR Mode</title>
+  </head>
+  <body>
+    <script>
+      // Start an AR session using WebXR
+      async function startAR() {
+        const session = await navigator.xr.requestSession('immersive-ar', {
+          requiredFeatures: ['local-floor', 'hit-test'],
+        });
+
+        // Create a WebGL context for rendering the AR scene
+        const gl = document.createElement('canvas').getContext('webgl', { xrCompatible: true });
+        session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
+
+        // Load the main React app with the AR session
+        const script = document.createElement('script');
+        script.src = '/static/js/main.js';
+        script.onload = () => {
+          window.ReactAppAR.startAR(gl, session);
+        };
+        document.body.appendChild(script);
+      }
+
+      // Check if the device supports AR and start the AR session
+      if (navigator.xr && XRSession && XRSession.prototype.requestHitTestSource) {
+        startAR();
+      } else {
+        alert('AR is not supported on this device.');
+        window.location.href = '/';
+      }
+    </script>
+  </body>
+</html>
