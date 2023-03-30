@@ -20,5 +20,6 @@ module.exports = {
     'max-len': ['error', { code: 100 }],
     'no-console': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/no-unknown-property': 'off',
   },
 };
