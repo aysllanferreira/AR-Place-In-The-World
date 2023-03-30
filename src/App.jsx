@@ -1,13 +1,15 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { XR } from '@react-three/xr';
-import { Box } from '@react-three/drei';
+import Model from './Model';
 
 function App() {
   return (
     <Canvas>
       <XR>
-        <Box scale={[0.5, 0.5, 0.5]} position={[0, 0, -1]} color="red" />
+        <ambientLight />
+        <pointLight position={[10, 10, 10]} />
+        <Model position={[0, 0, -1]} />
       </XR>
     </Canvas>
   );
