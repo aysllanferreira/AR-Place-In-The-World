@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  VRButton, XR, Controllers, Hands,
+  ARButton, XR, Controllers, Hands,
 } from '@react-three/xr';
 import { Canvas } from '@react-three/fiber';
 
 function App() {
   return (
     <>
-      <VRButton />
+      <ARButton />
       <Canvas>
         <XR>
           <Controllers />
