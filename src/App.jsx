@@ -1,24 +1,15 @@
 import React from 'react';
-import {
-  ARButton, XR, Controllers, Hands,
-} from '@react-three/xr';
 import { Canvas } from '@react-three/fiber';
+import { XR } from '@react-three/xr';
+import { Box } from '@react-three/drei';
 
 function App() {
   return (
-    <>
-      <ARButton />
-      <Canvas>
-        <XR>
-          <Controllers />
-          <Hands />
-          <mesh>
-            <boxGeometry />
-            <meshBasicMaterial color="blue" />
-          </mesh>
-        </XR>
-      </Canvas>
-    </>
+    <Canvas>
+      <XR>
+        <Box scale={[0.5, 0.5, 0.5]} position={[0, 0, -1]} color="red" />
+      </XR>
+    </Canvas>
   );
 }
 
