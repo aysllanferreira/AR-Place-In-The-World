@@ -1,21 +1,24 @@
 import React from 'react';
-import { ZapparCanvas, ZapparCamera, InstantTracker } from '@zappar/zappar-react-three-fiber';
-import './Environment.scss';
+import {
+  VRButton, ARButton, XR, Controllers, Hands,
+} from '@react-three/xr';
+import { Canvas } from '@react-three/fiber';
 
 function App() {
   return (
-    <div className="Environment">
-      <ZapparCanvas>
-        <ZapparCamera rearCameraMirrorMode facingMode="environment" />
-        <InstantTracker placementUI="placement-only" placementCameraOffset={[0, 0, -10]}>
+    <>
+      <VRButton />
+      <Canvas>
+        <XR>
+          <Controllers />
+          <Hands />
           <mesh>
-            <sphereBufferGeometry />
-            <meshStandardMaterial color="hotpink" />
+            <boxGeometry />
+            <meshBasicMaterial color="blue" />
           </mesh>
-        </InstantTracker>
-        <directionalLight position={[2.5, 8, 5]} intensity={1.5} />
-      </ZapparCanvas>
-    </div>
+        </XR>
+      </Canvas>
+    </>
   );
 }
 
